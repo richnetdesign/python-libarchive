@@ -339,7 +339,7 @@ class Entry(object):
             symLinkPath = ""
 
             if entry.issym():
-                libarchive.archive_entry_copy_symlink(e, symLinkPath)
+                symLinkPath = _libarchive.archive_entry_symlink(e)
 
             print(symLinkPath)
 
