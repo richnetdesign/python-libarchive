@@ -368,6 +368,10 @@ def archive_entry_mtime(*args):
   return __libarchive.archive_entry_mtime(*args)
 archive_entry_mtime = __libarchive.archive_entry_mtime
 
+def archive_entry_symlink(*args):
+  return __libarchive.archive_entry_symlink(*args)
+archive_entry_symlink = __libarchive.archive_entry_symlink
+
 def archive_entry_filetype(*args):
   return __libarchive.archive_entry_filetype(*args)
 archive_entry_filetype = __libarchive.archive_entry_filetype
@@ -387,6 +391,14 @@ archive_entry_set_size = __libarchive.archive_entry_set_size
 def archive_entry_set_mtime(*args):
   return __libarchive.archive_entry_set_mtime(*args)
 archive_entry_set_mtime = __libarchive.archive_entry_set_mtime
+
+def archive_entry_set_symlink(*args):
+  return __libarchive.archive_entry_set_symlink (*args)
+archive_entry_set_symlink = __libarchive.archive_entry_set_symlink
+
+def archive_entry_set_link(*args):
+  return __libarchive.archive_entry_set_link (*args)
+archive_entry_set_link = __libarchive.archive_entry_set_link
 
 def archive_entry_set_filetype(*args):
   return __libarchive.archive_entry_set_filetype(*args)
