@@ -305,10 +305,10 @@ class Entry(object):
         self.hpos = hpos
         self.encoding = encoding
 
-        if self.issym():
+        if self.issym() and symlink:
             self.symlink = symlink
-        else:
-            self.symlink = None
+        #else:
+        #    self.symlink = None
 
     @property
     def header_position(self):
@@ -340,8 +340,8 @@ class Entry(object):
 
             if entry.issym():
                 symLinkPath = _libarchive.archive_entry_symlink(e)
-
-            print(symLinkPath)
+                entry.symlink = symLinkPath
+                print(symLinkPath)
 
         finally:
             _libarchive.archive_entry_free(e)
@@ -385,6 +385,10 @@ class Entry(object):
             _libarchive.archive_entry_set_perm(e, stat.S_IMODE(self.mode))
             _libarchive.archive_entry_set_size(e, self.size)
             _libarchive.archive_entry_set_mtime(e, self.mtime, 0)
+
+            if e.issym():
+                libarchive.archive_entry_set_symlink(e, self.symlink)
+
             call_and_check(_libarchive.archive_write_header, archive._a, archive._a, e)
             #self.hpos = archive.header_position
         finally:
