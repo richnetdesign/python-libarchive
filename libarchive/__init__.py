@@ -370,6 +370,10 @@ class Entry(object):
                 entry.size = getattr(f, 'size', 0)
                 entry.mtime = getattr(f, 'mtime', time.time())
                 entry.mode = stat.S_IFREG
+
+            if stat.S_ISLNK(entry.mode):
+                print("yo")
+
         return entry
 
     def to_archive(self, archive):
@@ -385,8 +389,8 @@ class Entry(object):
             _libarchive.archive_entry_set_size(e, self.size)
             _libarchive.archive_entry_set_mtime(e, self.mtime, 0)
 
-            if e.issym():
-                libarchive.archive_entry_set_symlink(e, self.symlink)
+            if stat.S_ISLNK(self.mode):
+                _libarchive.archive_entry_set_symlink(e, self.symlink)
 
             call_and_check(_libarchive.archive_write_header, archive._a, archive._a, e)
             #self.hpos = archive.header_position
