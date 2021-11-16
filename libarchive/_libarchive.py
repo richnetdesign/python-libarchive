@@ -396,6 +396,10 @@ def archive_entry_set_symlink(*args):
   return __libarchive.archive_entry_set_symlink (*args)
 archive_entry_set_symlink = __libarchive.archive_entry_set_symlink
 
+def archive_entry_set_link(*args):
+  return __libarchive.archive_entry_set_link (*args)
+archive_entry_set_link = __libarchive.archive_entry_set_link
+
 def archive_entry_set_filetype(*args):
   return __libarchive.archive_entry_set_filetype(*args)
 archive_entry_set_filetype = __libarchive.archive_entry_set_filetype
