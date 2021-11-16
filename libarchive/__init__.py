@@ -297,7 +297,9 @@ class EntryWriteStream(object):
 
 class Entry(object):
     '''An entry within an archive. Represents the header data and it's location within the archive.'''
-    def __init__(self, pathname=None, size=None, mtime=None, mode=None, hpos=None, encoding=ENCODING, symlink=None):
+    def __init__(self, pathname=None, size=None, mtime=None, mode=None, hpos=None, encoding=ENCODING):
+
+        #, symlink=None
         self.pathname = pathname
         self.size = size
         self.mtime = mtime
@@ -305,8 +307,10 @@ class Entry(object):
         self.hpos = hpos
         self.encoding = encoding
 
-        if self.issym() and symlink:
-            self.symlink = symlink
+        self.symlink = ""
+
+        #if self.issym() and symlink:
+        #    self.symlink = symlink
         #else:
         #    self.symlink = None
 
@@ -393,6 +397,8 @@ class Entry(object):
                 _libarchive.archive_entry_set_symlink(e, self.symlink)
 
             call_and_check(_libarchive.archive_write_header, archive._a, archive._a, e)
+
+            #todo
             #self.hpos = archive.header_position
         finally:
             _libarchive.archive_entry_free(e)
