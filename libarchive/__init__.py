@@ -29,6 +29,8 @@ import sys
 import time
 import warnings
 
+from ctypes import cdll, c_char_p
+
 from libarchive import _libarchive
 from io import StringIO
 
@@ -295,13 +297,18 @@ class EntryWriteStream(object):
 
 class Entry(object):
     '''An entry within an archive. Represents the header data and it's location within the archive.'''
-    def __init__(self, pathname=None, size=None, mtime=None, mode=None, hpos=None, encoding=ENCODING):
+    def __init__(self, pathname=None, size=None, mtime=None, mode=None, hpos=None, encoding=ENCODING, symlink=None):
         self.pathname = pathname
         self.size = size
         self.mtime = mtime
         self.mode = mode
         self.hpos = hpos
         self.encoding = encoding
+
+        if self.issym():
+            self.symlink = symlink
+        else:
+            self.symlink = None
 
     @property
     def header_position(self):
@@ -328,6 +335,14 @@ class Entry(object):
                 mode=mode,
                 hpos=archive.header_position,
             )
+
+            symLinkPath = ""
+
+            if entry.issym():
+                libarchive.archive_entry_copy_symlink(e, symLinkPath)
+
+            print(symLinkPath)
+
         finally:
             _libarchive.archive_entry_free(e)
         return entry
