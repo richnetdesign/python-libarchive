@@ -336,9 +336,8 @@ class Entry(object):
                 hpos=archive.header_position,
             )
 
-            symLinkPath = ""
-
             if entry.issym():
+                print("issym")
                 symLinkPath = _libarchive.archive_entry_symlink(e)
                 entry.symlink = symLinkPath
                 print(symLinkPath)
