@@ -72,8 +72,6 @@
 
 typedef unsigned short   mode_t;
 
-# Everything below is from the archive.h and archive_entry.h files.
-# I excluded functions declarations that are not needed.
 
 /* CONFIGURATION */
 
@@ -276,6 +274,33 @@ extern __LA_INT64_T	 archive_entry_size(struct archive_entry *);
 extern time_t            archive_entry_mtime(struct archive_entry *);
 extern __LA_MODE_T	 archive_entry_filetype(struct archive_entry *);
 extern __LA_MODE_T	 archive_entry_perm(struct archive_entry *);
+extern const char	*archive_entry_symlink(struct archive_entry *);
+//extern  const char	*archive_entry_symlink_utf8(struct archive_entry *);
+
+extern void	archive_entry_set_link(struct archive_entry *, const char *);
+//extern void	archive_entry_set_link_utf8(struct archive_entry *, const char *);
+//extern int		 archive_entry_symlink_type(struct archive_entry *);
+extern const wchar_t	*archive_entry_symlink_w(struct archive_entry *);
+
+//__LA_DECL void	archive_entry_copy_link(struct archive_entry *, const char *);
+//__LA_DECL void	archive_entry_copy_link_w(struct archive_entry *, const wchar_t *);
+
+/* The names for symlink modes here correspond to an old BSD
+ * command-line argument convention: -L, -P, -H */
+/* Follow all symlinks. */
+extern int archive_read_disk_set_symlink_logical(struct archive *);
+/* Follow no symlinks. */
+extern int archive_read_disk_set_symlink_physical(struct archive *);
+/* Follow symlink initially, then not. */
+extern int archive_read_disk_set_symlink_hybrid(struct archive *);
+
+
+extern void	archive_entry_set_symlink(struct archive_entry *, const char *);
+//extern void	archive_entry_set_symlink_type(struct archive_entry *, int);
+//extern void	archive_entry_set_symlink_utf8(struct archive_entry *, const char *);
+extern void	archive_entry_copy_symlink(struct archive_entry *, const char *);
+extern void	archive_entry_copy_symlink_w(struct archive_entry *, const wchar_t *);
+//extern int	archive_entry_update_symlink_utf8(struct archive_entry *, const char *);
 
 /* writing */
 extern void	archive_entry_set_pathname(struct archive_entry *, const char *);
@@ -283,6 +308,8 @@ extern void	archive_entry_set_size(struct archive_entry *, __LA_INT64_T);
 extern void	archive_entry_set_mtime(struct archive_entry *, time_t, long);
 extern void	archive_entry_set_filetype(struct archive_entry *, unsigned int);
 extern void	archive_entry_set_perm(struct archive_entry *, __LA_MODE_T);
+//extern void	archive_entry_set_link(struct archive_entry *, __LA_MODE_T);
+//extern void	archive_entry_set_symlink(struct archive_entry *, __LA_MODE_T);
 
 
 /* ERROR HANDLING */
