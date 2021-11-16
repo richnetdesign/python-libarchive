@@ -2,7 +2,7 @@ CFLAGS     = -g
 INCLUDE    = -I/usr/include -I.
 LIBS       = -larchive
 
-PYVER ?= 2.7
+PYVER ?= 3.10
 
 all: __libarchive.so
 
