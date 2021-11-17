@@ -318,8 +318,8 @@ extern const char	*archive_error_string(struct archive *);
 
 
 /* CONSTANTS */
-#define	ARCHIVE_VERSION_NUMBER 3000001
-#define	ARCHIVE_VERSION_STRING "libarchive 3.0.1b"
+#define	ARCHIVE_VERSION_NUMBER 3005003
+#define	ARCHIVE_VERSION_STRING "libarchive 3.5.2"
 #define	ARCHIVE_EOF	  1	/* Found end of archive. */
 #define	ARCHIVE_OK	  0	/* Operation was successful. */
 #define	ARCHIVE_RETRY	(-10)	/* Retry might succeed. */

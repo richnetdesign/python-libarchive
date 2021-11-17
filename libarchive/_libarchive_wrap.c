@@ -760,7 +760,7 @@ SWIG_UnpackDataName(const char *c, void *ptr, size_t sz, const char *name) {
 #define PyString_Size(str) PyBytes_Size(str)	
 #define PyString_InternFromString(key) PyUnicode_InternFromString(key)
 #define Py_TPFLAGS_HAVE_CLASS Py_TPFLAGS_BASETYPE
-#define PyString_AS_STRING(x) PyUnicode_AsUTF8(x)
+#define PyString_AS_STRING(x) PyUnicode_AS_STRING(x)
 #define _PyLong_FromSsize_t(x) PyLong_FromSsize_t(x)
 
 #endif
@@ -3199,7 +3199,7 @@ PyObject *archive_read_data_into_str(struct archive *archive, int len) {
         PyErr_SetString(PyExc_MemoryError, "could not allocate string.");
         return NULL;
     }
-    if (len != archive_read_data(archive, (void*)PyString_AS_STRING(str), len)) {
+    if (len != archive_read_data(archive, PyString_AS_STRING(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not read requested data.");
         return NULL;
     }
@@ -3208,7 +3208,7 @@ PyObject *archive_read_data_into_str(struct archive *archive, int len) {
 
 PyObject *archive_write_data_from_str(struct archive *archive, PyObject *str) {
     int len = PyString_Size(str);
-    if (!archive_write_data(archive, (const void *)PyString_AS_STRING(str), len)) {
+    if (!archive_write_data(archive, PyString_AS_STRING(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not write requested data.");
         return NULL;
     }
@@ -6545,8 +6545,8 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
-  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_NUMBER",SWIG_From_int((int)(3000001)));
-  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_STRING",SWIG_FromCharPtr("libarchive 3.0.1b"));
+  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_NUMBER",SWIG_From_int((int)(3005003)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_STRING",SWIG_FromCharPtr("libarchive 3.5.2"));
   SWIG_Python_SetConstant(d, "ARCHIVE_EOF",SWIG_From_int((int)(1)));
   SWIG_Python_SetConstant(d, "ARCHIVE_OK",SWIG_From_int((int)(0)));
   SWIG_Python_SetConstant(d, "ARCHIVE_RETRY",SWIG_From_int((int)((-10))));

@@ -33,7 +33,8 @@ import io
 from libarchive import Archive, is_archive_name, is_archive
 from libarchive.zip import is_zipfile, ZipFile, ZipEntry
 
-PY3 = sys.version_info[0] == 3
+#PY3 = sys.version_info[0] == 3
+PY3 = True
 
 TMPDIR = tempfile.mkdtemp(suffix='.python-libarchive')
 ZIPFILE = 'test.zip'

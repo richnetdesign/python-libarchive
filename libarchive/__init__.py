@@ -29,12 +29,13 @@ import sys
 import time
 import warnings
 
-from ctypes import cdll, c_char_p
+#from ctypes import cdll, c_char_p
 
 from libarchive import _libarchive
 from io import StringIO
 
-PY3 = sys.version_info[0] == 3
+#PY3 = sys.version_info[0] == 3
+PY3 = True
 
 # Suggested block size for libarchive. Libarchive may adjust it.
 BLOCK_SIZE = 10240
