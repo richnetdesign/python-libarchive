@@ -17,7 +17,7 @@ _libarchive_wrap.o: _libarchive_wrap.c
 #	${CXX} -c ${CFLAGS} -fPIC  $$(python${PYVER}-config --cflags) -DPyUnicode_AS_STRING=PyUnicode_AS_DATA _libarchive_wrap.cxx
 
 __libarchive.so: _libarchive_wrap.o
-	${CC} _libarchive_wrap.o -shared $$(python${PYVER}-config --ldflags) -o __libarchive.so ${LIBS}
+	${CC} _libarchive_wrap.o -shared $$(python${PYVER}-config --ldflags) -Wl,-soname=__libarchive.so -o __libarchive.so ${LIBS}
 
 clean:
 	rm -f *.o *.so *.pyc
