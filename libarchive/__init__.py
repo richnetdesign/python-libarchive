@@ -426,11 +426,13 @@ class Entry(object):
 class Archive(object):
     '''A low-level archive reader which provides forward-only iteration. Consider
     this a light-weight pythonic libarchive wrapper.'''
-    def __init__(self, f, mode='r', format=None, filter=None, entry_class=Entry, encoding=ENCODING, blocksize=BLOCK_SIZE):
+    def __init__(self, f, mode='r', format=None, filter=None, entry_class=Entry, 
+        encoding=ENCODING, blocksize=BLOCK_SIZE, password=None):
         assert mode in ('r', 'w', 'wb', 'a'), 'Mode should be "r", "w", "wb", or "a".'
         self._stream = None
         self.encoding = encoding
         self.blocksize = blocksize
+        self.password = password
         if isinstance(f, str):
             self.filename = f
             f = open(f, mode)
@@ -499,8 +501,12 @@ class Archive(object):
         self.format_func(self._a)
         self.filter_func(self._a)
         if self.mode == 'r':
+            if self.password:
+                self.add_passphrase(self.password)
             call_and_check(_libarchive.archive_read_open_fd, self._a, self._a, self.f.fileno(), self.blocksize)
         else:
+            if self.password:
+                self.set_passphrase(self.password)
             call_and_check(_libarchive.archive_write_open_fd, self._a, self._a, self.f.fileno())
 
     def denit(self):
@@ -562,7 +568,7 @@ class Archive(object):
         '''Write current archive entry contents to file. f can be a file-like object or
         a path.'''
         if isinstance(f, str):
-            basedir = os.path.basename(f)
+            basedir = os.path.dirname(f)
             if not os.path.exists(basedir):
                 os.makedirs(basedir)
             f = open(f, 'w')
@@ -626,6 +632,10 @@ class Archive(object):
     def add_passphrase(self, password):
         '''Adds a password to the archive.'''
         _libarchive.archive_read_add_passphrase(self._a, password)
+    
+    def set_passphrase(self, password):
+        '''Sets a password for the archive.'''
+        _libarchive.archive_write_set_passphrase(self._a, password)
 
 
 class SeekableArchive(Archive):

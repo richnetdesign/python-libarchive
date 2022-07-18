@@ -535,8 +535,9 @@ PyObject *archive_read_data_into_str(struct archive *archive, int len) {
 }
 
 PyObject *archive_write_data_from_str(struct archive *archive, PyObject *str) {
-    int len = PyString_Size(str);
-    if (!archive_write_data(archive, PyString_AS_STRING(str), len)) {
+    Py_ssize_t len = PyBytes_Size(str);
+ 
+    if (!archive_write_data(archive, PyBytes_AS_STRING(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not write requested data.");
         return NULL;
     }
