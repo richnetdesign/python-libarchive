@@ -7,7 +7,7 @@ PYVER ?= 3.9
 
 all: __libarchive.so
 
-_libarchive_wrap.cxx: _libarchive.i
+_libarchive_wrap.c: _libarchive.i
 	#swig -python -c++ -Wall -shadow _libarchive.i
 	swig -python -Wall -shadow  _libarchive.i
 
