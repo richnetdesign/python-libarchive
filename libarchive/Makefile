@@ -2,7 +2,7 @@ CFLAGS     = -g
 INCLUDE    = -I/usr/include -I.
 LIBS       = -larchive
 
-DEFINES = -DPyUnicode_AS_STRING=PyUnicode_AS_DATA
+#DEFINES = -DPyUnicode_AS_STRING=PyUnicode_AS_DATA
 PYVER ?= 3.9
 
 all: __libarchive.so

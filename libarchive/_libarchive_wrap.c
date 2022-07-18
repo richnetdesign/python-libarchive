@@ -3193,13 +3193,14 @@ SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
 }
 
 
+
 PyObject *archive_read_data_into_str(struct archive *archive, int len) {
     PyObject *str = NULL;
     if (!(str = PyUnicode_FromStringAndSize(NULL, len))) {
         PyErr_SetString(PyExc_MemoryError, "could not allocate string.");
         return NULL;
     }
-    if (len != archive_read_data(archive, PyString_AS_STRING(str), len)) {
+    if (len != archive_read_data(archive, PyUnicode_AS_DATA(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not read requested data.");
         return NULL;
     }
