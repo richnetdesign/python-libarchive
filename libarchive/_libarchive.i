@@ -293,42 +293,78 @@ extern int		 archive_write_close(struct archive *);
 extern int archive_write_header(struct archive *,
 		     struct archive_entry *);
 
+extern int archive_write_set_format_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to the filter only. */
+extern int archive_write_set_filter_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to both the format and the filter. */
+extern int archive_write_set_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option string to both the format and the filter. */
+extern int archive_write_set_options(struct archive *_a,
+			    const char *opts);
+
+/* password */
+extern int archive_write_set_passphrase(struct archive *_a, const char *p);
 /* data */
 
 /* commit */
 extern int		 archive_write_finish_entry(struct archive *);
 
 /* FILTERS */
+extern int archive_write_add_filter(struct archive *, int filter_code);
+extern int archive_write_add_filter_by_name(struct archive *,
+		     const char *name);
+extern int archive_write_add_filter_b64encode(struct archive *);
 extern int archive_write_add_filter_bzip2(struct archive *);
 extern int archive_write_add_filter_compress(struct archive *);
+extern int archive_write_add_filter_grzip(struct archive *);
 extern int archive_write_add_filter_gzip(struct archive *);
+extern int archive_write_add_filter_lrzip(struct archive *);
+extern int archive_write_add_filter_lz4(struct archive *);
 extern int archive_write_add_filter_lzip(struct archive *);
 extern int archive_write_add_filter_lzma(struct archive *);
+extern int archive_write_add_filter_lzop(struct archive *);
 extern int archive_write_add_filter_none(struct archive *);
+extern int archive_write_add_filter_program(struct archive *,
+		     const char *cmd);
+extern int archive_write_add_filter_uuencode(struct archive *);
 extern int archive_write_add_filter_xz(struct archive *);
 
 
-/* FORMATS */
 /* A convenience function to set the format based on the code or name. */
 extern int archive_write_set_format(struct archive *, int format_code);
 extern int archive_write_set_format_by_name(struct archive *,
 		     const char *name);
 /* To minimize link pollution, use one or more of the following. */
+extern int archive_write_set_format_7zip(struct archive *);
 extern int archive_write_set_format_ar_bsd(struct archive *);
 extern int archive_write_set_format_ar_svr4(struct archive *);
 extern int archive_write_set_format_cpio(struct archive *);
 extern int archive_write_set_format_cpio_newc(struct archive *);
 extern int archive_write_set_format_gnutar(struct archive *);
 extern int archive_write_set_format_iso9660(struct archive *);
-/*extern int archive_write_set_format_mtree(struct archive *);*/
+extern int archive_write_set_format_mtree(struct archive *);
+extern int archive_write_set_format_mtree_classic(struct archive *);
 /* TODO: int archive_write_set_format_old_tar(struct archive *); */
 extern int archive_write_set_format_pax(struct archive *);
 extern int archive_write_set_format_pax_restricted(struct archive *);
+extern int archive_write_set_format_raw(struct archive *);
 extern int archive_write_set_format_shar(struct archive *);
 extern int archive_write_set_format_shar_dump(struct archive *);
 extern int archive_write_set_format_ustar(struct archive *);
+extern int archive_write_set_format_v7tar(struct archive *);
+extern int archive_write_set_format_warc(struct archive *);
 extern int archive_write_set_format_xar(struct archive *);
 extern int archive_write_set_format_zip(struct archive *);
+extern int archive_write_set_format_filter_by_ext(struct archive *a, const char *filename);
+extern int archive_write_set_format_filter_by_ext_def(struct archive *a, const char *filename, const char * def_ext);
+extern int archive_write_zip_set_compression_deflate(struct archive *);
+extern int archive_write_zip_set_compression_store(struct archive *);
 
 /* ARCHIVE ENTRY */
 extern struct archive_entry	*archive_entry_new(void);

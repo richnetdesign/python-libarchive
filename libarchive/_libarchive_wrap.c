@@ -5372,6 +5372,237 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_archive_write_set_format_option(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  char *arg4 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  PyObject *swig_obj[4] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_format_option", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_option" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_format_option" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "archive_write_set_format_option" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "archive_write_set_format_option" "', argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)archive_write_set_format_option(arg1,(char const *)arg2,(char const *)arg3,(char const *)arg4);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_filter_option(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  char *arg4 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  PyObject *swig_obj[4] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_filter_option", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_filter_option" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_filter_option" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "archive_write_set_filter_option" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "archive_write_set_filter_option" "', argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)archive_write_set_filter_option(arg1,(char const *)arg2,(char const *)arg3,(char const *)arg4);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_option(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  char *arg4 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  PyObject *swig_obj[4] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_option", 4, 4, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_option" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_option" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "archive_write_set_option" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "archive_write_set_option" "', argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = (char *)(buf4);
+  result = (int)archive_write_set_option(arg1,(char const *)arg2,(char const *)arg3,(char const *)arg4);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  if (alloc4 == SWIG_NEWOBJ) free((char*)buf4);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_options(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_options", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_options" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_options" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)archive_write_set_options(arg1,(char const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_passphrase(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_passphrase", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_passphrase" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_passphrase" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)archive_write_set_passphrase(arg1,(char const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_archive_write_finish_entry(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct archive *arg1 = (struct archive *) 0 ;
@@ -5388,6 +5619,92 @@ SWIGINTERN PyObject *_wrap_archive_write_finish_entry(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = (struct archive *)(argp1);
   result = (int)archive_write_finish_entry(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_add_filter", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "archive_write_add_filter" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = (int)(val2);
+  result = (int)archive_write_add_filter(arg1,arg2);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_by_name(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_add_filter_by_name", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_by_name" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_add_filter_by_name" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)archive_write_add_filter_by_name(arg1,(char const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_b64encode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_b64encode" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_b64encode(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5441,6 +5758,29 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_grzip(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_grzip" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_grzip(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_archive_write_add_filter_gzip(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct archive *arg1 = (struct archive *) 0 ;
@@ -5457,6 +5797,52 @@ SWIGINTERN PyObject *_wrap_archive_write_add_filter_gzip(PyObject *SWIGUNUSEDPAR
   }
   arg1 = (struct archive *)(argp1);
   result = (int)archive_write_add_filter_gzip(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_lrzip(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_lrzip" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_lrzip(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_lz4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_lz4" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_lz4(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5510,6 +5896,29 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_lzop(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_lzop" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_lzop(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_archive_write_add_filter_none(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct archive *arg1 = (struct archive *) 0 ;
@@ -5526,6 +5935,62 @@ SWIGINTERN PyObject *_wrap_archive_write_add_filter_none(PyObject *SWIGUNUSEDPAR
   }
   arg1 = (struct archive *)(argp1);
   result = (int)archive_write_add_filter_none(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_program(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_add_filter_program", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_program" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_add_filter_program" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)archive_write_add_filter_program(arg1,(char const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_add_filter_uuencode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_add_filter_uuencode" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_add_filter_uuencode(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5615,6 +6080,29 @@ SWIGINTERN PyObject *_wrap_archive_write_set_format_by_name(PyObject *SWIGUNUSED
   return resultobj;
 fail:
   if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_7zip(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_7zip" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_7zip(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -5757,6 +6245,52 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_archive_write_set_format_mtree(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_mtree" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_mtree(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_mtree_classic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_mtree_classic" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_mtree_classic(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_archive_write_set_format_pax(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct archive *arg1 = (struct archive *) 0 ;
@@ -5796,6 +6330,29 @@ SWIGINTERN PyObject *_wrap_archive_write_set_format_pax_restricted(PyObject *SWI
   }
   arg1 = (struct archive *)(argp1);
   result = (int)archive_write_set_format_pax_restricted(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_raw(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_raw" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_raw(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -5872,6 +6429,52 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_archive_write_set_format_v7tar(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_v7tar" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_v7tar(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_warc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_warc" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_set_format_warc(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_archive_write_set_format_xar(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   struct archive *arg1 = (struct archive *) 0 ;
@@ -5911,6 +6514,129 @@ SWIGINTERN PyObject *_wrap_archive_write_set_format_zip(PyObject *SWIGUNUSEDPARM
   }
   arg1 = (struct archive *)(argp1);
   result = (int)archive_write_set_format_zip(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_filter_by_ext(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  PyObject *swig_obj[2] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_format_filter_by_ext", 2, 2, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_filter_by_ext" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_format_filter_by_ext" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  result = (int)archive_write_set_format_filter_by_ext(arg1,(char const *)arg2);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_set_format_filter_by_ext_def(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  char *arg2 = (char *) 0 ;
+  char *arg3 = (char *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 ;
+  char *buf2 = 0 ;
+  int alloc2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  PyObject *swig_obj[3] ;
+  int result;
+  
+  if (!SWIG_Python_UnpackTuple(args, "archive_write_set_format_filter_by_ext_def", 3, 3, swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_set_format_filter_by_ext_def" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  res2 = SWIG_AsCharPtrAndSize(swig_obj[1], &buf2, NULL, &alloc2);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "archive_write_set_format_filter_by_ext_def" "', argument " "2"" of type '" "char const *""'");
+  }
+  arg2 = (char *)(buf2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "archive_write_set_format_filter_by_ext_def" "', argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = (char *)(buf3);
+  result = (int)archive_write_set_format_filter_by_ext_def(arg1,(char const *)arg2,(char const *)arg3);
+  resultobj = SWIG_From_int((int)(result));
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return resultobj;
+fail:
+  if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+  if (alloc3 == SWIG_NEWOBJ) free((char*)buf3);
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_zip_set_compression_deflate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_zip_set_compression_deflate" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_zip_set_compression_deflate(arg1);
+  resultobj = SWIG_From_int((int)(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_archive_write_zip_set_compression_store(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  struct archive *arg1 = (struct archive *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  int result;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_archive, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "archive_write_zip_set_compression_store" "', argument " "1"" of type '" "struct archive *""'"); 
+  }
+  arg1 = (struct archive *)(argp1);
+  result = (int)archive_write_zip_set_compression_store(arg1);
   resultobj = SWIG_From_int((int)(result));
   return resultobj;
 fail:
@@ -6680,29 +7406,53 @@ static PyMethodDef SwigMethods[] = {
 	 { "archive_write_open_memory", _wrap_archive_write_open_memory, METH_VARARGS, NULL},
 	 { "archive_write_close", _wrap_archive_write_close, METH_O, NULL},
 	 { "archive_write_header", _wrap_archive_write_header, METH_VARARGS, NULL},
+	 { "archive_write_set_format_option", _wrap_archive_write_set_format_option, METH_VARARGS, NULL},
+	 { "archive_write_set_filter_option", _wrap_archive_write_set_filter_option, METH_VARARGS, NULL},
+	 { "archive_write_set_option", _wrap_archive_write_set_option, METH_VARARGS, NULL},
+	 { "archive_write_set_options", _wrap_archive_write_set_options, METH_VARARGS, NULL},
+	 { "archive_write_set_passphrase", _wrap_archive_write_set_passphrase, METH_VARARGS, NULL},
 	 { "archive_write_finish_entry", _wrap_archive_write_finish_entry, METH_O, NULL},
+	 { "archive_write_add_filter", _wrap_archive_write_add_filter, METH_VARARGS, NULL},
+	 { "archive_write_add_filter_by_name", _wrap_archive_write_add_filter_by_name, METH_VARARGS, NULL},
+	 { "archive_write_add_filter_b64encode", _wrap_archive_write_add_filter_b64encode, METH_O, NULL},
 	 { "archive_write_add_filter_bzip2", _wrap_archive_write_add_filter_bzip2, METH_O, NULL},
 	 { "archive_write_add_filter_compress", _wrap_archive_write_add_filter_compress, METH_O, NULL},
+	 { "archive_write_add_filter_grzip", _wrap_archive_write_add_filter_grzip, METH_O, NULL},
 	 { "archive_write_add_filter_gzip", _wrap_archive_write_add_filter_gzip, METH_O, NULL},
+	 { "archive_write_add_filter_lrzip", _wrap_archive_write_add_filter_lrzip, METH_O, NULL},
+	 { "archive_write_add_filter_lz4", _wrap_archive_write_add_filter_lz4, METH_O, NULL},
 	 { "archive_write_add_filter_lzip", _wrap_archive_write_add_filter_lzip, METH_O, NULL},
 	 { "archive_write_add_filter_lzma", _wrap_archive_write_add_filter_lzma, METH_O, NULL},
+	 { "archive_write_add_filter_lzop", _wrap_archive_write_add_filter_lzop, METH_O, NULL},
 	 { "archive_write_add_filter_none", _wrap_archive_write_add_filter_none, METH_O, NULL},
+	 { "archive_write_add_filter_program", _wrap_archive_write_add_filter_program, METH_VARARGS, NULL},
+	 { "archive_write_add_filter_uuencode", _wrap_archive_write_add_filter_uuencode, METH_O, NULL},
 	 { "archive_write_add_filter_xz", _wrap_archive_write_add_filter_xz, METH_O, NULL},
 	 { "archive_write_set_format", _wrap_archive_write_set_format, METH_VARARGS, NULL},
 	 { "archive_write_set_format_by_name", _wrap_archive_write_set_format_by_name, METH_VARARGS, NULL},
+	 { "archive_write_set_format_7zip", _wrap_archive_write_set_format_7zip, METH_O, NULL},
 	 { "archive_write_set_format_ar_bsd", _wrap_archive_write_set_format_ar_bsd, METH_O, NULL},
 	 { "archive_write_set_format_ar_svr4", _wrap_archive_write_set_format_ar_svr4, METH_O, NULL},
 	 { "archive_write_set_format_cpio", _wrap_archive_write_set_format_cpio, METH_O, NULL},
 	 { "archive_write_set_format_cpio_newc", _wrap_archive_write_set_format_cpio_newc, METH_O, NULL},
 	 { "archive_write_set_format_gnutar", _wrap_archive_write_set_format_gnutar, METH_O, NULL},
 	 { "archive_write_set_format_iso9660", _wrap_archive_write_set_format_iso9660, METH_O, NULL},
+	 { "archive_write_set_format_mtree", _wrap_archive_write_set_format_mtree, METH_O, NULL},
+	 { "archive_write_set_format_mtree_classic", _wrap_archive_write_set_format_mtree_classic, METH_O, NULL},
 	 { "archive_write_set_format_pax", _wrap_archive_write_set_format_pax, METH_O, NULL},
 	 { "archive_write_set_format_pax_restricted", _wrap_archive_write_set_format_pax_restricted, METH_O, NULL},
+	 { "archive_write_set_format_raw", _wrap_archive_write_set_format_raw, METH_O, NULL},
 	 { "archive_write_set_format_shar", _wrap_archive_write_set_format_shar, METH_O, NULL},
 	 { "archive_write_set_format_shar_dump", _wrap_archive_write_set_format_shar_dump, METH_O, NULL},
 	 { "archive_write_set_format_ustar", _wrap_archive_write_set_format_ustar, METH_O, NULL},
+	 { "archive_write_set_format_v7tar", _wrap_archive_write_set_format_v7tar, METH_O, NULL},
+	 { "archive_write_set_format_warc", _wrap_archive_write_set_format_warc, METH_O, NULL},
 	 { "archive_write_set_format_xar", _wrap_archive_write_set_format_xar, METH_O, NULL},
 	 { "archive_write_set_format_zip", _wrap_archive_write_set_format_zip, METH_O, NULL},
+	 { "archive_write_set_format_filter_by_ext", _wrap_archive_write_set_format_filter_by_ext, METH_VARARGS, NULL},
+	 { "archive_write_set_format_filter_by_ext_def", _wrap_archive_write_set_format_filter_by_ext_def, METH_VARARGS, NULL},
+	 { "archive_write_zip_set_compression_deflate", _wrap_archive_write_zip_set_compression_deflate, METH_O, NULL},
+	 { "archive_write_zip_set_compression_store", _wrap_archive_write_zip_set_compression_store, METH_O, NULL},
 	 { "archive_entry_new", _wrap_archive_entry_new, METH_NOARGS, NULL},
 	 { "archive_entry_free", _wrap_archive_entry_free, METH_O, NULL},
 	 { "archive_entry_pathname", _wrap_archive_entry_pathname, METH_O, NULL},
@@ -7528,8 +8278,8 @@ SWIG_init(void) {
   
   SWIG_InstallConstants(d,swig_const_table);
   
-  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_NUMBER",SWIG_From_int((int)(3005003)));
-  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_STRING",SWIG_FromCharPtr("libarchive 3.5.2"));
+  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_NUMBER",SWIG_From_int((int)(3002002)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_VERSION_STRING",SWIG_FromCharPtr("libarchive 3.2.2"));
   SWIG_Python_SetConstant(d, "ARCHIVE_EOF",SWIG_From_int((int)(1)));
   SWIG_Python_SetConstant(d, "ARCHIVE_OK",SWIG_From_int((int)(0)));
   SWIG_Python_SetConstant(d, "ARCHIVE_RETRY",SWIG_From_int((int)((-10))));
@@ -7546,6 +8296,10 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_UU",SWIG_From_int((int)(7)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_RPM",SWIG_From_int((int)(8)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_LZIP",SWIG_From_int((int)(9)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_LRZIP",SWIG_From_int((int)(10)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_LZOP",SWIG_From_int((int)(11)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_GRZIP",SWIG_From_int((int)(12)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_FILTER_LZ4",SWIG_From_int((int)(13)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_BASE_MASK",SWIG_From_int((int)(0xff0000)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_CPIO",SWIG_From_int((int)(0x10000)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_CPIO_POSIX",SWIG_From_int((int)((0x10000|1))));
@@ -7576,6 +8330,7 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_CAB",SWIG_From_int((int)(0xC0000)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_RAR",SWIG_From_int((int)(0xD0000)));
   SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_7ZIP",SWIG_From_int((int)(0xE0000)));
+  SWIG_Python_SetConstant(d, "ARCHIVE_FORMAT_WARC",SWIG_From_int((int)(0xF0000)));
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_OWNER",SWIG_From_int((int)((0x0001))));
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_PERM",SWIG_From_int((int)((0x0002))));
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_TIME",SWIG_From_int((int)((0x0004))));
@@ -7590,6 +8345,10 @@ SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_NO_OVERWRITE_NEWER",SWIG_From_int((int)((0x0800))));
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_SPARSE",SWIG_From_int((int)((0x1000))));
   SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_MAC_METADATA",SWIG_From_int((int)((0x2000))));
+  SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_NO_HFS_COMPRESSION",SWIG_From_int((int)((0x4000))));
+  SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_HFS_COMPRESSION_FORCED",SWIG_From_int((int)((0x8000))));
+  SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_SECURE_NOABSOLUTEPATHS",SWIG_From_int((int)((0x10000))));
+  SWIG_Python_SetConstant(d, "ARCHIVE_EXTRACT_CLEAR_NOCHANGE_FFLAGS",SWIG_From_int((int)((0x20000))));
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else
