@@ -62,8 +62,8 @@ class ZipEntry(Entry):
 
 
 class ZipFile(SeekableArchive):
-    def __init__(self, f, mode='r', compression=ZIP_DEFLATED, allowZip64=False):
-        super(ZipFile, self).__init__(f, mode=mode, format='zip', entry_class=ZipEntry, encoding='CP437')
+    def __init__(self, f, mode='r', compression=ZIP_DEFLATED, allowZip64=False, password=None):
+        super(ZipFile, self).__init__(f, mode=mode, format='zip', entry_class=ZipEntry, encoding='CP437', password=password)
         if mode == 'w' and compression == ZIP_STORED:
             # Disable compression for writing.
             _libarchive.archive_write_set_format_option(self.archive._a, "zip", "compression", "store")
@@ -72,38 +72,39 @@ class ZipFile(SeekableArchive):
     getinfo     = SeekableArchive.getentry
 
     def namelist(self):
-        return list(self.iterpaths)
+        return list(self.iterpaths())
 
     def infolist(self):
         return list(self)
 
     def open(self, name, mode, pwd=None):
-        if pwd:
-            raise NotImplemented('Encryption not supported.')
         if mode == 'r':
+            if pwd:
+                self.add_passphrase(pwd)
             return self.readstream(name)
         else:
             return self.writestream(name)
 
     def extract(self, name, path=None, pwd=None):
         if pwd:
-            raise NotImplemented('Encryption not supported.')
+            self.add_passphrase(pwd)
         if not path:
             path = os.getcwd()
         return self.readpath(name, os.path.join(path, name))
 
     def extractall(self, path, names=None, pwd=None):
         if pwd:
-            raise NotImplemented('Encryption not supported.')
+            self.add_passphrase(pwd)
         if not names:
             names = self.namelist()
         if names:
+            print(f"Extracting {names} files.")
             for name in names:
                 self.extract(name, path)
 
     def read(self, name, pwd=None):
         if pwd:
-            raise NotImplemented('Encryption not supported.')
+            self.add_passphrase(pwd)
         return self.read(name)
 
     def writestr(self, member, data, compress_type=None):
@@ -112,7 +113,7 @@ class ZipFile(SeekableArchive):
         return self.write(member, data)
 
     def setpassword(self, pwd):
-        raise NotImplemented('Encryption not supported.')
+        return self.set_passphrase(pwd)
 
     def testzip(self):
         raise NotImplemented()

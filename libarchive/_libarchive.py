@@ -95,11 +95,62 @@ def archive_entry_stat(arg1):
 def archive_read_header_position(arg1):
     return __libarchive.archive_read_header_position(arg1)
 
+def archive_read_set_format_option(_a, m, o, v):
+    return __libarchive.archive_read_set_format_option(_a, m, o, v)
+
+def archive_read_set_filter_option(_a, m, o, v):
+    return __libarchive.archive_read_set_filter_option(_a, m, o, v)
+
+def archive_read_set_option(_a, m, o, v):
+    return __libarchive.archive_read_set_option(_a, m, o, v)
+
+def archive_read_set_options(_a, opts):
+    return __libarchive.archive_read_set_options(_a, opts)
+
+def archive_read_add_passphrase(arg1, arg2):
+    return __libarchive.archive_read_add_passphrase(arg1, arg2)
+
 def archive_read_data_skip(arg1):
     return __libarchive.archive_read_data_skip(arg1)
 
 def archive_read_data_into_fd(arg1, fd):
     return __libarchive.archive_read_data_into_fd(arg1, fd)
+
+def archive_read_support_compression_all(arg1):
+    return __libarchive.archive_read_support_compression_all(arg1)
+
+def archive_read_support_compression_bzip2(arg1):
+    return __libarchive.archive_read_support_compression_bzip2(arg1)
+
+def archive_read_support_compression_compress(arg1):
+    return __libarchive.archive_read_support_compression_compress(arg1)
+
+def archive_read_support_compression_gzip(arg1):
+    return __libarchive.archive_read_support_compression_gzip(arg1)
+
+def archive_read_support_compression_lzip(arg1):
+    return __libarchive.archive_read_support_compression_lzip(arg1)
+
+def archive_read_support_compression_lzma(arg1):
+    return __libarchive.archive_read_support_compression_lzma(arg1)
+
+def archive_read_support_compression_none(arg1):
+    return __libarchive.archive_read_support_compression_none(arg1)
+
+def archive_read_support_compression_program(arg1, command):
+    return __libarchive.archive_read_support_compression_program(arg1, command)
+
+def archive_read_support_compression_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_support_compression_program_signature(arg1, arg2, arg3, arg4)
+
+def archive_read_support_compression_rpm(arg1):
+    return __libarchive.archive_read_support_compression_rpm(arg1)
+
+def archive_read_support_compression_uu(arg1):
+    return __libarchive.archive_read_support_compression_uu(arg1)
+
+def archive_read_support_compression_xz(arg1):
+    return __libarchive.archive_read_support_compression_xz(arg1)
 
 def archive_read_support_filter_all(arg1):
     return __libarchive.archive_read_support_filter_all(arg1)
@@ -113,14 +164,32 @@ def archive_read_support_filter_compress(arg1):
 def archive_read_support_filter_gzip(arg1):
     return __libarchive.archive_read_support_filter_gzip(arg1)
 
+def archive_read_support_filter_grzip(arg1):
+    return __libarchive.archive_read_support_filter_grzip(arg1)
+
+def archive_read_support_filter_lrzip(arg1):
+    return __libarchive.archive_read_support_filter_lrzip(arg1)
+
+def archive_read_support_filter_lz4(arg1):
+    return __libarchive.archive_read_support_filter_lz4(arg1)
+
 def archive_read_support_filter_lzip(arg1):
     return __libarchive.archive_read_support_filter_lzip(arg1)
 
 def archive_read_support_filter_lzma(arg1):
     return __libarchive.archive_read_support_filter_lzma(arg1)
 
+def archive_read_support_filter_lzop(arg1):
+    return __libarchive.archive_read_support_filter_lzop(arg1)
+
 def archive_read_support_filter_none(arg1):
     return __libarchive.archive_read_support_filter_none(arg1)
+
+def archive_read_support_filter_program(arg1, command):
+    return __libarchive.archive_read_support_filter_program(arg1, command)
+
+def archive_read_support_filter_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_support_filter_program_signature(arg1, arg2, arg3, arg4)
 
 def archive_read_support_filter_rpm(arg1):
     return __libarchive.archive_read_support_filter_rpm(arg1)
@@ -131,14 +200,17 @@ def archive_read_support_filter_uu(arg1):
 def archive_read_support_filter_xz(arg1):
     return __libarchive.archive_read_support_filter_xz(arg1)
 
-def archive_read_support_format_all(arg1):
-    return __libarchive.archive_read_support_format_all(arg1)
-
 def archive_read_support_format_7zip(arg1):
     return __libarchive.archive_read_support_format_7zip(arg1)
 
+def archive_read_support_format_all(arg1):
+    return __libarchive.archive_read_support_format_all(arg1)
+
 def archive_read_support_format_ar(arg1):
     return __libarchive.archive_read_support_format_ar(arg1)
+
+def archive_read_support_format_by_code(arg1, arg2):
+    return __libarchive.archive_read_support_format_by_code(arg1, arg2)
 
 def archive_read_support_format_cab(arg1):
     return __libarchive.archive_read_support_format_cab(arg1)
@@ -167,11 +239,32 @@ def archive_read_support_format_raw(arg1):
 def archive_read_support_format_tar(arg1):
     return __libarchive.archive_read_support_format_tar(arg1)
 
+def archive_read_support_format_warc(arg1):
+    return __libarchive.archive_read_support_format_warc(arg1)
+
 def archive_read_support_format_xar(arg1):
     return __libarchive.archive_read_support_format_xar(arg1)
 
 def archive_read_support_format_zip(arg1):
     return __libarchive.archive_read_support_format_zip(arg1)
+
+def archive_read_support_format_zip_streamable(arg1):
+    return __libarchive.archive_read_support_format_zip_streamable(arg1)
+
+def archive_read_support_format_zip_seekable(arg1):
+    return __libarchive.archive_read_support_format_zip_seekable(arg1)
+
+def archive_read_set_format(arg1, arg2):
+    return __libarchive.archive_read_set_format(arg1, arg2)
+
+def archive_read_append_filter(arg1, arg2):
+    return __libarchive.archive_read_append_filter(arg1, arg2)
+
+def archive_read_append_filter_program(arg1, arg2):
+    return __libarchive.archive_read_append_filter_program(arg1, arg2)
+
+def archive_read_append_filter_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_append_filter_program_signature(arg1, arg2, arg3, arg4)
 
 def archive_write_new():
     return __libarchive.archive_write_new()
@@ -200,8 +293,32 @@ def archive_write_close(arg1):
 def archive_write_header(arg1, arg2):
     return __libarchive.archive_write_header(arg1, arg2)
 
+def archive_write_set_format_option(_a, m, o, v):
+    return __libarchive.archive_write_set_format_option(_a, m, o, v)
+
+def archive_write_set_filter_option(_a, m, o, v):
+    return __libarchive.archive_write_set_filter_option(_a, m, o, v)
+
+def archive_write_set_option(_a, m, o, v):
+    return __libarchive.archive_write_set_option(_a, m, o, v)
+
+def archive_write_set_options(_a, opts):
+    return __libarchive.archive_write_set_options(_a, opts)
+
+def archive_write_set_passphrase(_a, p):
+    return __libarchive.archive_write_set_passphrase(_a, p)
+
 def archive_write_finish_entry(arg1):
     return __libarchive.archive_write_finish_entry(arg1)
+
+def archive_write_add_filter(arg1, filter_code):
+    return __libarchive.archive_write_add_filter(arg1, filter_code)
+
+def archive_write_add_filter_by_name(arg1, name):
+    return __libarchive.archive_write_add_filter_by_name(arg1, name)
+
+def archive_write_add_filter_b64encode(arg1):
+    return __libarchive.archive_write_add_filter_b64encode(arg1)
 
 def archive_write_add_filter_bzip2(arg1):
     return __libarchive.archive_write_add_filter_bzip2(arg1)
@@ -209,8 +326,17 @@ def archive_write_add_filter_bzip2(arg1):
 def archive_write_add_filter_compress(arg1):
     return __libarchive.archive_write_add_filter_compress(arg1)
 
+def archive_write_add_filter_grzip(arg1):
+    return __libarchive.archive_write_add_filter_grzip(arg1)
+
 def archive_write_add_filter_gzip(arg1):
     return __libarchive.archive_write_add_filter_gzip(arg1)
+
+def archive_write_add_filter_lrzip(arg1):
+    return __libarchive.archive_write_add_filter_lrzip(arg1)
+
+def archive_write_add_filter_lz4(arg1):
+    return __libarchive.archive_write_add_filter_lz4(arg1)
 
 def archive_write_add_filter_lzip(arg1):
     return __libarchive.archive_write_add_filter_lzip(arg1)
@@ -218,8 +344,17 @@ def archive_write_add_filter_lzip(arg1):
 def archive_write_add_filter_lzma(arg1):
     return __libarchive.archive_write_add_filter_lzma(arg1)
 
+def archive_write_add_filter_lzop(arg1):
+    return __libarchive.archive_write_add_filter_lzop(arg1)
+
 def archive_write_add_filter_none(arg1):
     return __libarchive.archive_write_add_filter_none(arg1)
+
+def archive_write_add_filter_program(arg1, cmd):
+    return __libarchive.archive_write_add_filter_program(arg1, cmd)
+
+def archive_write_add_filter_uuencode(arg1):
+    return __libarchive.archive_write_add_filter_uuencode(arg1)
 
 def archive_write_add_filter_xz(arg1):
     return __libarchive.archive_write_add_filter_xz(arg1)
@@ -229,6 +364,9 @@ def archive_write_set_format(arg1, format_code):
 
 def archive_write_set_format_by_name(arg1, name):
     return __libarchive.archive_write_set_format_by_name(arg1, name)
+
+def archive_write_set_format_7zip(arg1):
+    return __libarchive.archive_write_set_format_7zip(arg1)
 
 def archive_write_set_format_ar_bsd(arg1):
     return __libarchive.archive_write_set_format_ar_bsd(arg1)
@@ -248,11 +386,20 @@ def archive_write_set_format_gnutar(arg1):
 def archive_write_set_format_iso9660(arg1):
     return __libarchive.archive_write_set_format_iso9660(arg1)
 
+def archive_write_set_format_mtree(arg1):
+    return __libarchive.archive_write_set_format_mtree(arg1)
+
+def archive_write_set_format_mtree_classic(arg1):
+    return __libarchive.archive_write_set_format_mtree_classic(arg1)
+
 def archive_write_set_format_pax(arg1):
     return __libarchive.archive_write_set_format_pax(arg1)
 
 def archive_write_set_format_pax_restricted(arg1):
     return __libarchive.archive_write_set_format_pax_restricted(arg1)
+
+def archive_write_set_format_raw(arg1):
+    return __libarchive.archive_write_set_format_raw(arg1)
 
 def archive_write_set_format_shar(arg1):
     return __libarchive.archive_write_set_format_shar(arg1)
@@ -263,11 +410,29 @@ def archive_write_set_format_shar_dump(arg1):
 def archive_write_set_format_ustar(arg1):
     return __libarchive.archive_write_set_format_ustar(arg1)
 
+def archive_write_set_format_v7tar(arg1):
+    return __libarchive.archive_write_set_format_v7tar(arg1)
+
+def archive_write_set_format_warc(arg1):
+    return __libarchive.archive_write_set_format_warc(arg1)
+
 def archive_write_set_format_xar(arg1):
     return __libarchive.archive_write_set_format_xar(arg1)
 
 def archive_write_set_format_zip(arg1):
     return __libarchive.archive_write_set_format_zip(arg1)
+
+def archive_write_set_format_filter_by_ext(a, filename):
+    return __libarchive.archive_write_set_format_filter_by_ext(a, filename)
+
+def archive_write_set_format_filter_by_ext_def(a, filename, def_ext):
+    return __libarchive.archive_write_set_format_filter_by_ext_def(a, filename, def_ext)
+
+def archive_write_zip_set_compression_deflate(arg1):
+    return __libarchive.archive_write_zip_set_compression_deflate(arg1)
+
+def archive_write_zip_set_compression_store(arg1):
+    return __libarchive.archive_write_zip_set_compression_store(arg1)
 
 def archive_entry_new():
     return __libarchive.archive_entry_new()
@@ -358,6 +523,10 @@ ARCHIVE_FILTER_XZ = __libarchive.ARCHIVE_FILTER_XZ
 ARCHIVE_FILTER_UU = __libarchive.ARCHIVE_FILTER_UU
 ARCHIVE_FILTER_RPM = __libarchive.ARCHIVE_FILTER_RPM
 ARCHIVE_FILTER_LZIP = __libarchive.ARCHIVE_FILTER_LZIP
+ARCHIVE_FILTER_LRZIP = __libarchive.ARCHIVE_FILTER_LRZIP
+ARCHIVE_FILTER_LZOP = __libarchive.ARCHIVE_FILTER_LZOP
+ARCHIVE_FILTER_GRZIP = __libarchive.ARCHIVE_FILTER_GRZIP
+ARCHIVE_FILTER_LZ4 = __libarchive.ARCHIVE_FILTER_LZ4
 ARCHIVE_FORMAT_BASE_MASK = __libarchive.ARCHIVE_FORMAT_BASE_MASK
 ARCHIVE_FORMAT_CPIO = __libarchive.ARCHIVE_FORMAT_CPIO
 ARCHIVE_FORMAT_CPIO_POSIX = __libarchive.ARCHIVE_FORMAT_CPIO_POSIX
@@ -388,6 +557,7 @@ ARCHIVE_FORMAT_LHA = __libarchive.ARCHIVE_FORMAT_LHA
 ARCHIVE_FORMAT_CAB = __libarchive.ARCHIVE_FORMAT_CAB
 ARCHIVE_FORMAT_RAR = __libarchive.ARCHIVE_FORMAT_RAR
 ARCHIVE_FORMAT_7ZIP = __libarchive.ARCHIVE_FORMAT_7ZIP
+ARCHIVE_FORMAT_WARC = __libarchive.ARCHIVE_FORMAT_WARC
 ARCHIVE_EXTRACT_OWNER = __libarchive.ARCHIVE_EXTRACT_OWNER
 ARCHIVE_EXTRACT_PERM = __libarchive.ARCHIVE_EXTRACT_PERM
 ARCHIVE_EXTRACT_TIME = __libarchive.ARCHIVE_EXTRACT_TIME
@@ -402,6 +572,10 @@ ARCHIVE_EXTRACT_NO_AUTODIR = __libarchive.ARCHIVE_EXTRACT_NO_AUTODIR
 ARCHIVE_EXTRACT_NO_OVERWRITE_NEWER = __libarchive.ARCHIVE_EXTRACT_NO_OVERWRITE_NEWER
 ARCHIVE_EXTRACT_SPARSE = __libarchive.ARCHIVE_EXTRACT_SPARSE
 ARCHIVE_EXTRACT_MAC_METADATA = __libarchive.ARCHIVE_EXTRACT_MAC_METADATA
+ARCHIVE_EXTRACT_NO_HFS_COMPRESSION = __libarchive.ARCHIVE_EXTRACT_NO_HFS_COMPRESSION
+ARCHIVE_EXTRACT_HFS_COMPRESSION_FORCED = __libarchive.ARCHIVE_EXTRACT_HFS_COMPRESSION_FORCED
+ARCHIVE_EXTRACT_SECURE_NOABSOLUTEPATHS = __libarchive.ARCHIVE_EXTRACT_SECURE_NOABSOLUTEPATHS
+ARCHIVE_EXTRACT_CLEAR_NOCHANGE_FFLAGS = __libarchive.ARCHIVE_EXTRACT_CLEAR_NOCHANGE_FFLAGS
 
 def archive_read_data_into_str(archive, len):
     return __libarchive.archive_read_data_into_str(archive, len)

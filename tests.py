@@ -176,6 +176,13 @@ class TestZipWrite(unittest.TestCase):
                 z.writepath(f)
         z.close()
 
+    def test_writepath_with_password(self):
+        z = ZipFile(self.f, 'w', password='test')
+        for fname in FILENAMES:
+            with open(os.path.join(TMPDIR, fname), 'r') as f:
+                z.writepath(f)
+        z.close()
+
     def test_writepath_directory(self):
         """ Test writing a directory. """
         z = ZipFile(self.f, 'w')

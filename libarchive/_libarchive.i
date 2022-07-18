@@ -153,8 +153,8 @@ extern int		 archive_read_free(struct archive *);
 extern int archive_read_open_filename(struct archive *,
 		     const char *_filename, size_t _block_size);
 extern int archive_read_open_memory(struct archive *,
-		     void * buff, size_t size);
-extern int archive_read_open_memory2(struct archive *a, void *buff,
+		     const void * buff, size_t size);
+extern int archive_read_open_memory2(struct archive *a, void const *buff,
 		     size_t size, size_t read_size);
 extern int archive_read_open_fd(struct archive *, int _fd,
 		     size_t _block_size);
@@ -169,39 +169,107 @@ extern int archive_read_next_header2(struct archive *,
 extern const struct stat	*archive_entry_stat(struct archive_entry *);
 extern __LA_INT64_T		 archive_read_header_position(struct archive *);
 
+/*
+ * Set read options.
+ */
+/* Apply option to the format only. */
+extern int archive_read_set_format_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to the filter only. */
+extern int archive_read_set_filter_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to both the format and the filter. */
+extern int archive_read_set_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option string to both the format and the filter. */
+extern int archive_read_set_options(struct archive *_a,
+			    const char *opts);
+
+/*
+ * Add a decryption passphrase.
+ */
+extern int archive_read_add_passphrase(struct archive *, const char *);
 /* data */
 extern int archive_read_data_skip(struct archive *);
 extern int archive_read_data_into_fd(struct archive *, int fd);
 
-/* FILTERS */
+#if ARCHIVE_VERSION_NUMBER < 4000000
+extern int archive_read_support_compression_all(struct archive *);
+extern int archive_read_support_compression_bzip2(struct archive *);
+extern int archive_read_support_compression_compress(struct archive *);
+extern int archive_read_support_compression_gzip(struct archive *);
+extern int archive_read_support_compression_lzip(struct archive *);
+extern int archive_read_support_compression_lzma(struct archive *);
+extern int archive_read_support_compression_none(struct archive *);
+extern int archive_read_support_compression_program(struct archive *, const char *command);
+extern int archive_read_support_compression_program_signature
+		(struct archive *, const char *,
+		 const void * /* match */, size_t);
+
+extern int archive_read_support_compression_rpm(struct archive *);
+extern int archive_read_support_compression_uu(struct archive *);
+extern int archive_read_support_compression_xz(struct archive *);
+#endif
+
 extern int archive_read_support_filter_all(struct archive *);
 extern int archive_read_support_filter_bzip2(struct archive *);
 extern int archive_read_support_filter_compress(struct archive *);
 extern int archive_read_support_filter_gzip(struct archive *);
+extern int archive_read_support_filter_grzip(struct archive *);
+extern int archive_read_support_filter_lrzip(struct archive *);
+extern int archive_read_support_filter_lz4(struct archive *);
 extern int archive_read_support_filter_lzip(struct archive *);
 extern int archive_read_support_filter_lzma(struct archive *);
+extern int archive_read_support_filter_lzop(struct archive *);
 extern int archive_read_support_filter_none(struct archive *);
+extern int archive_read_support_filter_program(struct archive *,
+		     const char *command);
+extern int archive_read_support_filter_program_signature
+		(struct archive *, const char * /* cmd */,
+				    const void * /* match */, size_t);
 extern int archive_read_support_filter_rpm(struct archive *);
 extern int archive_read_support_filter_uu(struct archive *);
 extern int archive_read_support_filter_xz(struct archive *);
 
-/* FORMATS */
-extern int archive_read_support_format_all(struct archive *);
 extern int archive_read_support_format_7zip(struct archive *);
+extern int archive_read_support_format_all(struct archive *);
 extern int archive_read_support_format_ar(struct archive *);
+extern int archive_read_support_format_by_code(struct archive *, int);
 extern int archive_read_support_format_cab(struct archive *);
 extern int archive_read_support_format_cpio(struct archive *);
 extern int archive_read_support_format_empty(struct archive *);
 extern int archive_read_support_format_gnutar(struct archive *);
 extern int archive_read_support_format_iso9660(struct archive *);
 extern int archive_read_support_format_lha(struct archive *);
-/*extern int archive_read_support_format_mtree(struct archive *);*/
+/* extern int archive_read_support_format_mtree(struct archive *); */
 extern int archive_read_support_format_rar(struct archive *);
 extern int archive_read_support_format_raw(struct archive *);
 extern int archive_read_support_format_tar(struct archive *);
+extern int archive_read_support_format_warc(struct archive *);
 extern int archive_read_support_format_xar(struct archive *);
+/* archive_read_support_format_zip() enables both streamable and seekable
+ * zip readers. */
 extern int archive_read_support_format_zip(struct archive *);
-/*extern int archive_read_support_format_by_code(struct archive *, int);*/
+/* Reads Zip archives as stream from beginning to end.  Doesn't
+ * correctly handle SFX ZIP files or ZIP archives that have been modified
+ * in-place. */
+extern int archive_read_support_format_zip_streamable(struct archive *);
+/* Reads starting from central directory; requires seekable input. */
+extern int archive_read_support_format_zip_seekable(struct archive *);
+
+/* Functions to manually set the format and filters to be used. This is
+ * useful to bypass the bidding process when the format and filters to use
+ * is known in advance.
+ */
+extern int archive_read_set_format(struct archive *, int);
+extern int archive_read_append_filter(struct archive *, int);
+extern int archive_read_append_filter_program(struct archive *,
+    const char *);
+extern int archive_read_append_filter_program_signature
+    (struct archive *, const char *, const void * /* match */, size_t);
 
 /* ARCHIVE WRITING */
 extern struct archive	*archive_write_new(void);
@@ -225,42 +293,78 @@ extern int		 archive_write_close(struct archive *);
 extern int archive_write_header(struct archive *,
 		     struct archive_entry *);
 
+extern int archive_write_set_format_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to the filter only. */
+extern int archive_write_set_filter_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option to both the format and the filter. */
+extern int archive_write_set_option(struct archive *_a,
+			    const char *m, const char *o,
+			    const char *v);
+/* Apply option string to both the format and the filter. */
+extern int archive_write_set_options(struct archive *_a,
+			    const char *opts);
+
+/* password */
+extern int archive_write_set_passphrase(struct archive *_a, const char *p);
 /* data */
 
 /* commit */
 extern int		 archive_write_finish_entry(struct archive *);
 
 /* FILTERS */
+extern int archive_write_add_filter(struct archive *, int filter_code);
+extern int archive_write_add_filter_by_name(struct archive *,
+		     const char *name);
+extern int archive_write_add_filter_b64encode(struct archive *);
 extern int archive_write_add_filter_bzip2(struct archive *);
 extern int archive_write_add_filter_compress(struct archive *);
+extern int archive_write_add_filter_grzip(struct archive *);
 extern int archive_write_add_filter_gzip(struct archive *);
+extern int archive_write_add_filter_lrzip(struct archive *);
+extern int archive_write_add_filter_lz4(struct archive *);
 extern int archive_write_add_filter_lzip(struct archive *);
 extern int archive_write_add_filter_lzma(struct archive *);
+extern int archive_write_add_filter_lzop(struct archive *);
 extern int archive_write_add_filter_none(struct archive *);
+extern int archive_write_add_filter_program(struct archive *,
+		     const char *cmd);
+extern int archive_write_add_filter_uuencode(struct archive *);
 extern int archive_write_add_filter_xz(struct archive *);
 
 
-/* FORMATS */
 /* A convenience function to set the format based on the code or name. */
 extern int archive_write_set_format(struct archive *, int format_code);
 extern int archive_write_set_format_by_name(struct archive *,
 		     const char *name);
 /* To minimize link pollution, use one or more of the following. */
+extern int archive_write_set_format_7zip(struct archive *);
 extern int archive_write_set_format_ar_bsd(struct archive *);
 extern int archive_write_set_format_ar_svr4(struct archive *);
 extern int archive_write_set_format_cpio(struct archive *);
 extern int archive_write_set_format_cpio_newc(struct archive *);
 extern int archive_write_set_format_gnutar(struct archive *);
 extern int archive_write_set_format_iso9660(struct archive *);
-/*extern int archive_write_set_format_mtree(struct archive *);*/
+extern int archive_write_set_format_mtree(struct archive *);
+extern int archive_write_set_format_mtree_classic(struct archive *);
 /* TODO: int archive_write_set_format_old_tar(struct archive *); */
 extern int archive_write_set_format_pax(struct archive *);
 extern int archive_write_set_format_pax_restricted(struct archive *);
+extern int archive_write_set_format_raw(struct archive *);
 extern int archive_write_set_format_shar(struct archive *);
 extern int archive_write_set_format_shar_dump(struct archive *);
 extern int archive_write_set_format_ustar(struct archive *);
+extern int archive_write_set_format_v7tar(struct archive *);
+extern int archive_write_set_format_warc(struct archive *);
 extern int archive_write_set_format_xar(struct archive *);
 extern int archive_write_set_format_zip(struct archive *);
+extern int archive_write_set_format_filter_by_ext(struct archive *a, const char *filename);
+extern int archive_write_set_format_filter_by_ext_def(struct archive *a, const char *filename, const char * def_ext);
+extern int archive_write_zip_set_compression_deflate(struct archive *);
+extern int archive_write_zip_set_compression_store(struct archive *);
 
 /* ARCHIVE ENTRY */
 extern struct archive_entry	*archive_entry_new(void);
@@ -282,8 +386,8 @@ extern void	archive_entry_set_link(struct archive_entry *, const char *);
 //extern int		 archive_entry_symlink_type(struct archive_entry *);
 extern const wchar_t	*archive_entry_symlink_w(struct archive_entry *);
 
-//__LA_DECL void	archive_entry_copy_link(struct archive_entry *, const char *);
-//__LA_DECL void	archive_entry_copy_link_w(struct archive_entry *, const wchar_t *);
+//extern void	archive_entry_copy_link(struct archive_entry *, const char *);
+//extern void	archive_entry_copy_link_w(struct archive_entry *, const wchar_t *);
 
 /* The names for symlink modes here correspond to an old BSD
  * command-line argument convention: -L, -P, -H */
@@ -318,8 +422,8 @@ extern const char	*archive_error_string(struct archive *);
 
 
 /* CONSTANTS */
-#define	ARCHIVE_VERSION_NUMBER 3005003
-#define	ARCHIVE_VERSION_STRING "libarchive 3.5.2"
+#define	ARCHIVE_VERSION_NUMBER 3002002
+#define	ARCHIVE_VERSION_STRING "libarchive 3.2.2"
 #define	ARCHIVE_EOF	  1	/* Found end of archive. */
 #define	ARCHIVE_OK	  0	/* Operation was successful. */
 #define	ARCHIVE_RETRY	(-10)	/* Retry might succeed. */
@@ -337,6 +441,10 @@ extern const char	*archive_error_string(struct archive *);
 #define	ARCHIVE_FILTER_UU	7
 #define	ARCHIVE_FILTER_RPM	8
 #define	ARCHIVE_FILTER_LZIP	9
+#define	ARCHIVE_FILTER_LRZIP	10
+#define	ARCHIVE_FILTER_LZOP	11
+#define	ARCHIVE_FILTER_GRZIP	12
+#define	ARCHIVE_FILTER_LZ4	13
 
 #define	ARCHIVE_FORMAT_BASE_MASK		0xff0000
 #define	ARCHIVE_FORMAT_CPIO			0x10000
@@ -368,30 +476,59 @@ extern const char	*archive_error_string(struct archive *);
 #define	ARCHIVE_FORMAT_CAB			0xC0000
 #define	ARCHIVE_FORMAT_RAR			0xD0000
 #define	ARCHIVE_FORMAT_7ZIP			0xE0000
+#define	ARCHIVE_FORMAT_WARC			0xF0000
 
+/* Default: Do not try to set owner/group. */
 #define	ARCHIVE_EXTRACT_OWNER			(0x0001)
+/* Default: Do obey umask, do not restore SUID/SGID/SVTX bits. */
 #define	ARCHIVE_EXTRACT_PERM			(0x0002)
+/* Default: Do not restore mtime/atime. */
 #define	ARCHIVE_EXTRACT_TIME			(0x0004)
+/* Default: Replace existing files. */
 #define	ARCHIVE_EXTRACT_NO_OVERWRITE 		(0x0008)
+/* Default: Try create first, unlink only if create fails with EEXIST. */
 #define	ARCHIVE_EXTRACT_UNLINK			(0x0010)
+/* Default: Do not restore ACLs. */
 #define	ARCHIVE_EXTRACT_ACL			(0x0020)
+/* Default: Do not restore fflags. */
 #define	ARCHIVE_EXTRACT_FFLAGS			(0x0040)
+/* Default: Do not restore xattrs. */
 #define	ARCHIVE_EXTRACT_XATTR 			(0x0080)
+/* Default: Do not try to guard against extracts redirected by symlinks. */
+/* Note: With ARCHIVE_EXTRACT_UNLINK, will remove any intermediate symlink. */
 #define	ARCHIVE_EXTRACT_SECURE_SYMLINKS		(0x0100)
+/* Default: Do not reject entries with '..' as path elements. */
 #define	ARCHIVE_EXTRACT_SECURE_NODOTDOT		(0x0200)
+/* Default: Create parent directories as needed. */
 #define	ARCHIVE_EXTRACT_NO_AUTODIR		(0x0400)
+/* Default: Overwrite files, even if one on disk is newer. */
 #define	ARCHIVE_EXTRACT_NO_OVERWRITE_NEWER	(0x0800)
+/* Detect blocks of 0 and write holes instead. */
 #define	ARCHIVE_EXTRACT_SPARSE			(0x1000)
+/* Default: Do not restore Mac extended metadata. */
+/* This has no effect except on Mac OS. */
 #define	ARCHIVE_EXTRACT_MAC_METADATA		(0x2000)
+/* Default: Use HFS+ compression if it was compressed. */
+/* This has no effect except on Mac OS v10.6 or later. */
+#define	ARCHIVE_EXTRACT_NO_HFS_COMPRESSION	(0x4000)
+/* Default: Do not use HFS+ compression if it was not compressed. */
+/* This has no effect except on Mac OS v10.6 or later. */
+#define	ARCHIVE_EXTRACT_HFS_COMPRESSION_FORCED	(0x8000)
+/* Default: Do not reject entries with absolute paths */
+#define ARCHIVE_EXTRACT_SECURE_NOABSOLUTEPATHS (0x10000)
+/* Default: Do not clear no-change flags when unlinking object */
+#define	ARCHIVE_EXTRACT_CLEAR_NOCHANGE_FFLAGS	(0x20000)
+
 
 %inline %{
+
 PyObject *archive_read_data_into_str(struct archive *archive, int len) {
     PyObject *str = NULL;
     if (!(str = PyUnicode_FromStringAndSize(NULL, len))) {
         PyErr_SetString(PyExc_MemoryError, "could not allocate string.");
         return NULL;
     }
-    if (len != archive_read_data(archive, PyString_AS_STRING(str), len)) {
+    if (len != archive_read_data(archive, PyUnicode_AS_DATA(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not read requested data.");
         return NULL;
     }
@@ -399,8 +536,9 @@ PyObject *archive_read_data_into_str(struct archive *archive, int len) {
 }
 
 PyObject *archive_write_data_from_str(struct archive *archive, PyObject *str) {
-    int len = PyString_Size(str);
-    if (!archive_write_data(archive, PyString_AS_STRING(str), len)) {
+    Py_ssize_t len = PyBytes_Size(str);
+ 
+    if (!archive_write_data(archive, PyBytes_AS_STRING(str), len)) {
         PyErr_SetString(PyExc_RuntimeError, "could not write requested data.");
         return NULL;
     }
