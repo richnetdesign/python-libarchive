@@ -623,6 +623,10 @@ class Archive(object):
             s.write(entry.pathname)
         s.flush()
 
+    def add_passphrase(self, password):
+        '''Adds a password to the archive.'''
+        _libarchive.archive_read_add_passphrase(self._a, password)
+
 
 class SeekableArchive(Archive):
     '''A class that provides random-access to archive entries. It does this by using one

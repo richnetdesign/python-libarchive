@@ -95,11 +95,62 @@ def archive_entry_stat(arg1):
 def archive_read_header_position(arg1):
     return __libarchive.archive_read_header_position(arg1)
 
+def archive_read_set_format_option(_a, m, o, v):
+    return __libarchive.archive_read_set_format_option(_a, m, o, v)
+
+def archive_read_set_filter_option(_a, m, o, v):
+    return __libarchive.archive_read_set_filter_option(_a, m, o, v)
+
+def archive_read_set_option(_a, m, o, v):
+    return __libarchive.archive_read_set_option(_a, m, o, v)
+
+def archive_read_set_options(_a, opts):
+    return __libarchive.archive_read_set_options(_a, opts)
+
+def archive_read_add_passphrase(arg1, arg2):
+    return __libarchive.archive_read_add_passphrase(arg1, arg2)
+
 def archive_read_data_skip(arg1):
     return __libarchive.archive_read_data_skip(arg1)
 
 def archive_read_data_into_fd(arg1, fd):
     return __libarchive.archive_read_data_into_fd(arg1, fd)
+
+def archive_read_support_compression_all(arg1):
+    return __libarchive.archive_read_support_compression_all(arg1)
+
+def archive_read_support_compression_bzip2(arg1):
+    return __libarchive.archive_read_support_compression_bzip2(arg1)
+
+def archive_read_support_compression_compress(arg1):
+    return __libarchive.archive_read_support_compression_compress(arg1)
+
+def archive_read_support_compression_gzip(arg1):
+    return __libarchive.archive_read_support_compression_gzip(arg1)
+
+def archive_read_support_compression_lzip(arg1):
+    return __libarchive.archive_read_support_compression_lzip(arg1)
+
+def archive_read_support_compression_lzma(arg1):
+    return __libarchive.archive_read_support_compression_lzma(arg1)
+
+def archive_read_support_compression_none(arg1):
+    return __libarchive.archive_read_support_compression_none(arg1)
+
+def archive_read_support_compression_program(arg1, command):
+    return __libarchive.archive_read_support_compression_program(arg1, command)
+
+def archive_read_support_compression_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_support_compression_program_signature(arg1, arg2, arg3, arg4)
+
+def archive_read_support_compression_rpm(arg1):
+    return __libarchive.archive_read_support_compression_rpm(arg1)
+
+def archive_read_support_compression_uu(arg1):
+    return __libarchive.archive_read_support_compression_uu(arg1)
+
+def archive_read_support_compression_xz(arg1):
+    return __libarchive.archive_read_support_compression_xz(arg1)
 
 def archive_read_support_filter_all(arg1):
     return __libarchive.archive_read_support_filter_all(arg1)
@@ -113,14 +164,32 @@ def archive_read_support_filter_compress(arg1):
 def archive_read_support_filter_gzip(arg1):
     return __libarchive.archive_read_support_filter_gzip(arg1)
 
+def archive_read_support_filter_grzip(arg1):
+    return __libarchive.archive_read_support_filter_grzip(arg1)
+
+def archive_read_support_filter_lrzip(arg1):
+    return __libarchive.archive_read_support_filter_lrzip(arg1)
+
+def archive_read_support_filter_lz4(arg1):
+    return __libarchive.archive_read_support_filter_lz4(arg1)
+
 def archive_read_support_filter_lzip(arg1):
     return __libarchive.archive_read_support_filter_lzip(arg1)
 
 def archive_read_support_filter_lzma(arg1):
     return __libarchive.archive_read_support_filter_lzma(arg1)
 
+def archive_read_support_filter_lzop(arg1):
+    return __libarchive.archive_read_support_filter_lzop(arg1)
+
 def archive_read_support_filter_none(arg1):
     return __libarchive.archive_read_support_filter_none(arg1)
+
+def archive_read_support_filter_program(arg1, command):
+    return __libarchive.archive_read_support_filter_program(arg1, command)
+
+def archive_read_support_filter_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_support_filter_program_signature(arg1, arg2, arg3, arg4)
 
 def archive_read_support_filter_rpm(arg1):
     return __libarchive.archive_read_support_filter_rpm(arg1)
@@ -131,14 +200,17 @@ def archive_read_support_filter_uu(arg1):
 def archive_read_support_filter_xz(arg1):
     return __libarchive.archive_read_support_filter_xz(arg1)
 
-def archive_read_support_format_all(arg1):
-    return __libarchive.archive_read_support_format_all(arg1)
-
 def archive_read_support_format_7zip(arg1):
     return __libarchive.archive_read_support_format_7zip(arg1)
 
+def archive_read_support_format_all(arg1):
+    return __libarchive.archive_read_support_format_all(arg1)
+
 def archive_read_support_format_ar(arg1):
     return __libarchive.archive_read_support_format_ar(arg1)
+
+def archive_read_support_format_by_code(arg1, arg2):
+    return __libarchive.archive_read_support_format_by_code(arg1, arg2)
 
 def archive_read_support_format_cab(arg1):
     return __libarchive.archive_read_support_format_cab(arg1)
@@ -167,11 +239,32 @@ def archive_read_support_format_raw(arg1):
 def archive_read_support_format_tar(arg1):
     return __libarchive.archive_read_support_format_tar(arg1)
 
+def archive_read_support_format_warc(arg1):
+    return __libarchive.archive_read_support_format_warc(arg1)
+
 def archive_read_support_format_xar(arg1):
     return __libarchive.archive_read_support_format_xar(arg1)
 
 def archive_read_support_format_zip(arg1):
     return __libarchive.archive_read_support_format_zip(arg1)
+
+def archive_read_support_format_zip_streamable(arg1):
+    return __libarchive.archive_read_support_format_zip_streamable(arg1)
+
+def archive_read_support_format_zip_seekable(arg1):
+    return __libarchive.archive_read_support_format_zip_seekable(arg1)
+
+def archive_read_set_format(arg1, arg2):
+    return __libarchive.archive_read_set_format(arg1, arg2)
+
+def archive_read_append_filter(arg1, arg2):
+    return __libarchive.archive_read_append_filter(arg1, arg2)
+
+def archive_read_append_filter_program(arg1, arg2):
+    return __libarchive.archive_read_append_filter_program(arg1, arg2)
+
+def archive_read_append_filter_program_signature(arg1, arg2, arg3, arg4):
+    return __libarchive.archive_read_append_filter_program_signature(arg1, arg2, arg3, arg4)
 
 def archive_write_new():
     return __libarchive.archive_write_new()
